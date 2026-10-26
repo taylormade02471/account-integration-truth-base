@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "lastConfirmedAt": null,
+  "purpose": "Track many email accounts as approved roles without storing secrets or assuming cross-account identity.",
+  "rules": {
+    "verifyProfileBeforeEveryRun": true,
+    "storeSecrets": false,
+    "storePasswords": false,
+    "storeMfaCodes": false,
+    "storeCookies": false,
+    "storeOauthTokens": false,
+    "sendRequiresImmediateApproval": true,
+    "deleteRequiresImmediateApproval": true,
+    "archiveRequiresApprovalUnlessRuleApproved": true,
+    "bulkActionsRequireApproval": true,
+    "noCrossMailboxActionsWithoutExplicitRoleMatch": true
+  },
+  "providerNotes": {
+    "gmail": {
+      "connector": "gmail",
+      "accountTypes": [
+        "gmail.com",
+        "google_workspace"
+      ],
+      "status": "declared"
+    },
+    "outlook_hotmail": {
+      "connector": "outlook_email",
+      "accountTypes": [
+        "outlook.com",
+        "hotmail.com",
+        "live.com",
+        "msn.com",
+        "microsoft_365"
+      ],
+      "status": "declared",
+      "note": "Hotmail uses the Outlook Email connector; do not create a separate fake Hotmail connector."
+    },
+    "icloud": {
+      "connector": null,
+      "accountTypes": [
+        "icloud.com",
+        "me.com",
+        "mac.com"
+      ],
+      "status": "needs_supported_connector_or_safe_route",
+      "safeRoutes": [
+        "use a supported iCloud Mail connector if one becomes available",
+        "forward or copy selected iCloud mail into an approved Gmail or Outlook mailbox",
+        "use user-provided exports or supervised browser review"
+      ],
+      "note": "Do not store Apple ID passwords, app-specific passwords, MFA codes, iCloud session cookies, or recovery keys."
+    }
+  },
+  "mailboxes": [
+    {
+      "slot": 1,
+      "label": "personal_hotmail",
+      "provider": "outlook_hotmail",
+      "connector": "outlook_email",
+      "account": null,
+      "approvedRoles": [],
+      "approved": false,
+      "notes": "Confirm the exact Hotmail/Outlook account profile after connection."
+    },
+    {
+      "slot": 2,
+      "label": "personal_icloud",
+      "provider": "icloud",
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false,
+      "notes": "Needs a supported connector or safe forwarding/export route before automation."
+    },
+    {
+      "slot": 3,
+      "label": "mailbox_03",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 4,
+      "label": "mailbox_04",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 5,
+      "label": "mailbox_05",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 6,
+      "label": "mailbox_06",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 7,
+      "label": "mailbox_07",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 8,
+      "label": "mailbox_08",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 9,
+      "label": "mailbox_09",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 10,
+      "label": "mailbox_10",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 11,
+      "label": "mailbox_11",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 12,
+      "label": "mailbox_12",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 13,
+      "label": "mailbox_13",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 14,
+      "label": "mailbox_14",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 15,
+      "label": "mailbox_15",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 16,
+      "label": "mailbox_16",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 17,
+      "label": "mailbox_17",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 18,
+      "label": "mailbox_18",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 19,
+      "label": "mailbox_19",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 20,
+      "label": "mailbox_20",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 21,
+      "label": "mailbox_21",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 22,
+      "label": "mailbox_22",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 23,
+      "label": "mailbox_23",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 24,
+      "label": "mailbox_24",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 25,
+      "label": "mailbox_25",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 26,
+      "label": "mailbox_26",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 27,
+      "label": "mailbox_27",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 28,
+      "label": "mailbox_28",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 29,
+      "label": "mailbox_29",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    },
+    {
+      "slot": 30,
+      "label": "mailbox_30",
+      "provider": null,
+      "connector": null,
+      "account": null,
+      "approvedRoles": [],
+      "approved": false
+    }
+  ]
+}
+

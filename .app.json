@@ -1,0 +1,20 @@
+{
+  "apps": {
+    "gmail": {
+      "id": "plugin_connector_1p_95d39881713c8191931482a62d6edff9"
+    },
+    "google_drive": {
+      "id": "plugin_connector_1p_ab21a553bfbc81919ea8fd1858e3ffa7"
+    },
+    "google_calendar": {
+      "id": "plugin_connector_1p_f8509de903288191b14a160c6c5d20b0"
+    },
+    "outlook_email": {
+      "id": "plugin_connector_1p_6bcb5879c73c819196abc70016166099"
+    },
+    "outlook_calendar": {
+      "id": "plugin_connector_1p_fd0f4f41caa88191a9456514bbffa06d"
+    }
+  }
+}
+

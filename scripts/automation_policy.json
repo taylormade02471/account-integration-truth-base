@@ -1,0 +1,209 @@
+{
+  "automationLevels": {
+    "0": {
+      "name": "observe",
+      "allowed": ["read", "summarize", "report"],
+      "approvalRequired": false
+    },
+    "1": {
+      "name": "organize",
+      "allowed": ["create folders", "sort files", "build checklists"],
+      "approvalRequired": false
+    },
+    "2": {
+      "name": "draft",
+      "allowed": ["outline", "draft", "create source notes"],
+      "approvalRequired": false
+    },
+    "3": {
+      "name": "revise",
+      "allowed": ["grammar check", "APA check", "rubric check", "voice revision"],
+      "approvalRequired": false
+    },
+    "4": {
+      "name": "prepare",
+      "allowed": ["prepare upload packet", "prepare calendar changes", "prepare message drafts"],
+      "approvalRequired": "before external change"
+    },
+    "5": {
+      "name": "external action",
+      "allowed": ["submit", "send", "delete", "certify", "change account state"],
+      "approvalRequired": true
+    }
+  },
+  "alwaysAskBefore": [
+    "submitting coursework",
+    "sending email",
+    "certifying authorship",
+    "deleting files",
+    "changing account settings",
+    "using unverified personal facts",
+    "choosing between conflicting course instructions"
+  ],
+  "controlUnitRouting": {
+    "enabled": true,
+    "allowedAutomaticRouting": [
+      "approved account route",
+      "approved connector",
+      "approved tool route",
+      "visible already-signed-in account",
+      "non-secret vault reference",
+      "job record",
+      "truth-base note",
+      "file map",
+      "connector map"
+    ],
+    "forbiddenAutomaticRouting": [
+      "silent account rotation to bypass service limits",
+      "password entry",
+      "MFA completion",
+      "passkey approval",
+      "OAuth consent acceptance",
+      "billing approval",
+      "permission escalation",
+      "final submit",
+      "send",
+      "delete",
+      "account setting change"
+    ]
+  },
+  "connectionRules": {
+    "verifyExactAccountBeforeEveryRun": true,
+    "allowReadOnlyMonitoringAfterWorkflowApproval": true,
+    "requireApprovedRoleBeforeExternalWrite": true,
+    "verifyWritesByReadback": true,
+    "neverStoreCredentialsOrTokens": true,
+    "blackboardRunPreflight": {
+      "requiredBeforeEachManualOrScheduledRun": true,
+      "browserSurface": "external Chrome",
+      "requiredChecks": [
+        "a Chrome tab is exposed to the current chat",
+        "the visible URL is the school LMS or Blackboard",
+        "the page is not waiting for password, MFA, passkey, remember-device, or account selection",
+        "the current course matches the class-scoped job before reading or preparing coursework"
+      ],
+      "readyOutcome": "continue with the class-scoped read-only intake or audit",
+      "blockedOutcomes": {
+        "tab_not_exposed": "record needs_tab_attachment, leave browser state untouched, and stop",
+        "authentication_required": "record needs_user_auth, preserve the safe route only, and stop",
+        "course_or_page_uncertain": "record needs_live_verification and stop",
+        "browser_in_use": "record needs_user_availability and stop"
+      },
+      "noBlindRetries": true,
+      "maximumAutomaticReconnectAttempts": 0,
+      "safeLogFields": [
+        "course key",
+        "page host",
+        "page type",
+        "visible assignment title",
+        "run status",
+        "next user action"
+      ]
+    },
+    "weeklyReadOnlyAudit": {
+      "enabled": true,
+      "schedule": "Sunday 19:00 America/Chicago",
+      "requiresLiveBlackboardProof": true,
+      "scope": [
+        "released current-week items",
+        "visible due dates and times",
+        "completion and submission indicators",
+        "rubrics, readings, and professor instructions when available"
+      ],
+      "outputs": [
+        "one CRJ handoff",
+        "one PSY handoff",
+        "one combined review summary"
+      ],
+      "externalActions": "forbidden until a direct action-time approval"
+    },
+    "classIsolation": {
+      "required": true,
+      "neverMixCourseMaterials": true,
+      "verifyClassBeforeDraftOrDispatch": true,
+      "externalClassChatDispatchRequires": [
+        "resolved destination",
+        "matching course key",
+        "direct user approval"
+      ]
+    },
+    "safeAuthenticationMemory": {
+      "allowed": [
+        "starting URL",
+        "provider button label",
+        "visible already-signed-in account label",
+        "approved connector role",
+        "approved tool route",
+        "vault reference name",
+        "password-manager product choice",
+        "cloud-vault provider choice",
+        "connector scope",
+        "account ownership note",
+        "stop condition"
+      ],
+      "forbidden": [
+        "password",
+        "MFA code",
+        "passkey",
+        "recovery code",
+        "access token",
+        "refresh token",
+        "cookie",
+        "SAML link",
+        "RelayState value",
+        "request signature",
+        "session URL",
+        "API key",
+        "device identifier",
+        "browser credential-store contents",
+        "password-manager vault contents",
+        "cloud-vault secret value"
+      ],
+      "vaultReferencePolicy": {
+        "allowedReferenceMetadata": [
+          "provider name",
+          "vault name",
+          "secret name",
+          "purpose",
+          "connector scope",
+          "access policy"
+        ],
+        "forbiddenSecretSources": [
+          "chat",
+          "logs",
+          "shared folder",
+          "Git",
+          "localStorage",
+          "frontend JavaScript",
+          "memory"
+        ]
+      },
+      "postUniversityRoute": {
+        "browser": "external Chrome",
+        "startUrls": [
+          "https://school.example.edu/",
+          "verified Blackboard course URL"
+        ],
+        "route": [
+          "Sign in with third-party account",
+          "Office365 - Student",
+          "student@example.edu when visibly already signed in"
+        ],
+        "stopFor": [
+          "password",
+          "MFA",
+          "passkey",
+          "remember-device prompt",
+          "unclear account picker",
+          "academic integrity statement",
+          "certification",
+          "final submit",
+          "send",
+          "delete",
+          "account setting change"
+        ]
+      }
+    }
+  }
+}
+

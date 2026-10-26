@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "timezone": "America/Chicago",
+  "weekBoundary": {
+    "startsOn": "Monday",
+    "endsOn": "Sunday"
+  },
+  "runModes": [
+    "scheduled",
+    "manual"
+  ],
+  "preflight": {
+    "requiredBeforeEveryBlackboardStage": true,
+    "browserSurface": "external Chrome",
+    "acceptedHosts": [
+      "school.example.edu",
+      "lms.example.edu"
+    ],
+    "requiredEvidence": [
+      "tab exposed to current chat",
+      "current visible page",
+      "verified course identity",
+      "no private authentication prompt",
+      "browser available for the run"
+    ],
+    "noBlindRetries": true,
+    "blockedStatuses": [
+      "needs_tab_attachment",
+      "needs_user_auth",
+      "needs_live_verification",
+      "needs_user_availability"
+    ]
+  },
+  "courses": [
+    {
+      "courseKey": "CRJ",
+      "artifactRoot": "coursework/CRJ/<week>/",
+      "classChatDestination": "unresolved",
+      "requiredOutputs": [
+        "intake_summary",
+        "source_inventory",
+        "current_week_audit",
+        "review_handoff"
+      ]
+    },
+    {
+      "courseKey": "PSY",
+      "artifactRoot": "coursework/PSY/<week>/",
+      "classChatDestination": "unresolved",
+      "requiredOutputs": [
+        "intake_summary",
+        "source_inventory",
+        "current_week_audit",
+        "review_handoff"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "monday_intake",
+      "schedule": "Monday 08:00",
+      "automationLevel": 1,
+      "requiresLiveBlackboardProof": true,
+      "perCourse": true,
+      "allowedActions": [
+        "read",
+        "organize",
+        "download_allowed_materials",
+        "create_source_inventory",
+        "create_outline",
+        "write_handoff"
+      ]
+    },
+    {
+      "id": "sunday_read_only_audit",
+      "schedule": "Sunday 19:00",
+      "automationLevel": 0,
+      "requiresLiveBlackboardProof": true,
+      "perCourse": true,
+      "allowedActions": [
+        "read",
+        "summarize",
+        "report",
+        "write_handoff",
+        "prepare_review_document"
+      ]
+    }
+  ],
+  "classIsolation": {
+    "required": true,
+    "neverMixArtifacts": true,
+    "verifyCourseBeforeEveryDraftOrDispatch": true,
+    "externalClassChatDispatchRequires": [
+      "resolved destination",
+      "matching course key",
+      "direct user approval"
+    ]
+  },
+  "blockedRunBehavior": {
+    "writeBlockedHandoff": true,
+    "include": [
+      "course key",
+      "run stage",
+      "blocker status",
+      "last verified live evidence",
+      "one clear next user action"
+    ],
+    "leaveBrowserUntouched": true,
+    "stopAffectedCourseRun": true
+  },
+  "externalActionBoundary": {
+    "requiresImmediateApproval": true,
+    "blockedActions": [
+      "post",
+      "submit",
+      "send",
+      "upload_final_file",
+      "certify",
+      "delete",
+      "change_account_state"
+    ]
+  }
+}
+

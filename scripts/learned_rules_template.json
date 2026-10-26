@@ -1,0 +1,37 @@
+{
+  "rules": [
+    {
+      "rule": "Avoid the punctuation mark that connects two words.",
+      "source": "explicit user instruction",
+      "dateLearned": "2026-10-06",
+      "confidence": "high",
+      "appliesTo": ["coursework", "emails", "final drafts"],
+      "requiresApprovalBeforeApplying": false
+    },
+    {
+      "rule": "Use practical first person voice when the assignment allows it.",
+      "source": "explicit user instruction",
+      "dateLearned": "2026-10-06",
+      "confidence": "high",
+      "appliesTo": ["reflections", "discussion posts", "personalized assignments"],
+      "requiresApprovalBeforeApplying": false
+    },
+    {
+      "rule": "Keep the user in control with approval gates for external actions.",
+      "source": "explicit user instruction",
+      "dateLearned": "2026-10-06",
+      "confidence": "high",
+      "appliesTo": ["submissions", "emails", "calendar changes", "account actions"],
+      "requiresApprovalBeforeApplying": false
+    },
+    {
+      "rule": "Remember safe account routes and visible signed-in account labels, but never store or replay credential material.",
+      "source": "explicit user instruction",
+      "dateLearned": "2026-10-08",
+      "confidence": "high",
+      "appliesTo": ["account routing", "browser login recovery", "connector identity checks", "agent handoffs"],
+      "requiresApprovalBeforeApplying": false
+    }
+  ]
+}
+

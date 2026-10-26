@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 2,
+  "timezone": "America/Chicago",
+  "weekBoundary": {
+    "startsOn": "Monday",
+    "endsOn": "Sunday"
+  },
+  "runContract": {
+    "file": "scripts/coursework_run_contract_template.json",
+    "requiredBeforeEachBlackboardStage": true,
+    "onConnectionUnavailable": [
+      "write a class-scoped blocked handoff",
+      "leave external tabs untouched",
+      "stop the current automated run",
+      "report one clear reconnect action"
+    ],
+    "noBlindRetries": true,
+    "externalActionsRequireImmediateApproval": true
+  },
+  "weeklyWorkflow": [
+    {
+      "day": "Monday",
+      "time": "08:00",
+      "name": "Ingest and outline",
+      "actions": [
+        "Run the Blackboard connection preflight for every configured course",
+        "Collect new unit materials",
+        "Extract rubric requirements",
+        "Create discussion and paper outlines",
+        "Save source inventory to student storage",
+        "Write separate CRJ and PSY intake handoffs"
+      ],
+      "requiresUserApproval": false
+    },
+    {
+      "day": "Tuesday",
+      "time": "10:00",
+      "name": "Draft and verify",
+      "actions": [
+        "Draft main discussion post",
+        "Check course source requirements",
+        "Find allowed outside source when needed",
+        "Run rubric and truth base checks"
+      ],
+      "requiresUserApproval": false
+    },
+    {
+      "day": "Wednesday",
+      "time": "17:00",
+      "name": "Discussion final review",
+      "actions": [
+        "Run grammar check",
+        "Run APA check",
+        "Prepare submission packet"
+      ],
+      "requiresUserApproval": true
+    },
+    {
+      "day": "Thursday",
+      "time": "12:00",
+      "name": "Scan and draft replies",
+      "actions": [
+        "Review classmate posts",
+        "Select two substantive reply targets",
+        "Draft two replies with correct names and source support"
+      ],
+      "requiresUserApproval": false
+    },
+    {
+      "day": "Friday",
+      "time": "16:00",
+      "name": "Reply final review",
+      "actions": [
+        "Check reply names",
+        "Check source support",
+        "Prepare reply submission packet"
+      ],
+      "requiresUserApproval": true
+    },
+    {
+      "day": "Friday",
+      "time": "18:00",
+      "name": "Draft unit assignment",
+      "actions": [
+        "Create title page when required",
+        "Draft body content",
+        "Build references",
+        "Run truth base check"
+      ],
+      "requiresUserApproval": false
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00",
+      "name": "Review and polish",
+      "actions": [
+        "Compare against rubric",
+        "Compare against past instructor feedback",
+        "Run spelling and APA checks",
+        "Prepare final draft for user edits"
+      ],
+      "requiresUserApproval": false
+    },
+    {
+      "day": "Sunday",
+      "time": "19:00",
+      "name": "Final submission readiness",
+      "actions": [
+        "Run a read-only course audit for every configured course",
+        "Run final readiness check",
+        "Write separate class handoff packets with verified requirements, deadlines, and blockers",
+        "Prepare upload packet",
+        "Archive weekly working files after user confirms completion"
+      ],
+      "requiresUserApproval": true
+    }
+  ]
+}
+

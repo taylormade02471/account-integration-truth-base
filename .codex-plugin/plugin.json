@@ -1,0 +1,30 @@
+{
+  "name": "account-integration-truth-base",
+  "version": "0.1.1+codex.20261008.email-registry",
+  "description": "A student workflow plugin for assignment intake, truth-base voice rules, APA checking, inbox monitoring, and deadline planning.",
+  "author": {
+    "name": "Kyle Taylor"
+  },
+  "skills": "./skills/",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "Account Integration Truth Base",
+    "shortDescription": "Organize coursework, verify facts, and prepare APA-ready drafts.",
+    "longDescription": "Account Integration Truth Base helps Codex ingest course materials, maintain a grounded personal truth base, monitor school communications, schedule coursework windows, and run repeatable academic checks before the user reviews and submits work.",
+    "developerName": "Kyle Taylor",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write",
+      "Review",
+      "Scheduling"
+    ],
+    "defaultPrompt": [
+      "Review my weekly assignments and build a safe plan.",
+      "Check this draft against my rubric and APA 7.",
+      "Update my coursework schedule from new messages."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
+

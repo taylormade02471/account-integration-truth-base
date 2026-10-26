@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "lastConfirmedAt": null,
+  "roles": {
+    "storage": {
+      "connector": "google_drive",
+      "account": null,
+      "approved": false
+    },
+    "mailCoordinator": {
+      "connector": null,
+      "approved": false,
+      "source": "scripts/email_connections_template.json",
+      "purpose": "Routes many email accounts through approved mailbox roles without assuming all accounts share one identity."
+    },
+    "announcementInbox": {
+      "connector": null,
+      "account": null,
+      "approved": false,
+      "allowedMailboxLabels": [],
+      "notes": "Use only mailboxes explicitly approved in email_connections_template.json."
+    },
+    "courseworkCalendar": {
+      "connector": null,
+      "account": null,
+      "approved": false
+    },
+    "schoolBrowser": {
+      "provider": "the school LMS Blackboard",
+      "account": "student@example.edu",
+      "approved": true,
+      "safeRoute": {
+        "browser": "external Chrome",
+        "startUrls": [
+          "https://school.example.edu/",
+          "verified Blackboard course URL"
+        ],
+        "steps": [
+          "Sign in with third-party account",
+          "Office365 - Student",
+          "select student@example.edu only when visibly already signed in"
+        ],
+        "stopFor": [
+          "password",
+          "MFA",
+          "passkey",
+          "remember-device prompt",
+          "unclear account picker",
+          "academic integrity statement",
+          "certification",
+          "final submit",
+          "send",
+          "delete",
+          "account setting change"
+        ]
+      }
+    }
+  },
+  "rules": {
+    "verifyProfileBeforeEveryRun": true,
+    "assumeCrossConnectorIdentity": false,
+    "supportMultipleEmailAccounts": true,
+    "maxEmailConnectionSlots": 30,
+    "sendRequiresImmediateApproval": true,
+    "submitRequiresImmediateApproval": true,
+    "deleteRequiresImmediateApproval": true,
+    "storeSecrets": false,
+    "safeAuthenticationMemoryStoresRoutesOnly": true
+  }
+}
+
